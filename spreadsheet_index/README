@@ -1,0 +1,4 @@
+This program finds out the integer index. given a spreadsheet alphabetic index.  For example, if "A" is passed, then that is index 1, whereas if "AA" is passed, then that is index 27, "CD" is 82, and so on.
+
+To use the program, you need to have the scala compiler installed on your system, compile the program, then execute the program. (if you don't know how to do the above, your favorite search engine is your friend :-) )
+After you launch the program, enter your alphabetic index (case insensitive - "AA" is the same as "Aa", for example), and then press enter.  The value returned by the program is the integer index.
