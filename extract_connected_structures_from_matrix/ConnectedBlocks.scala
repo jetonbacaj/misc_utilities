@@ -1,4 +1,4 @@
-object Block {
+object ConnectedBlocks {
   def main(args: Array[String]) {
 
     val blockStruct = Array.ofDim[Int](10, 10)
