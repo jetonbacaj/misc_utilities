@@ -1,0 +1,26 @@
+Given an n `x m matrix, find biggest connected structure (the nodes with 1s in them).  For example, given the matrix below;
+
+-----------------
+| 1 | 1 | 1 | 0 |
+-----------------
+| 1 | 0 | 0 | 0 |
+-----------------
+| 0 | 0 | 1 | 0 |
+-----------------
+| 0 | 0 | 0 | 0 |
+-----------------
+
+We can see two structures contiguous structures (the set of tuples);
+
+{(2,1), (1,3), (1,2), (1,1)}
+and
+{(3,3)}
+
+If you want to see all of the connected structures, uncomment line 76 in the code.  To see only the biggest one, uncomment line 79 in the code.
+
+Currently, the input matrix is hardcoded - it shouldn't be too hard to convert that to ask for input when the program is run... I'll leave that up to the masses. :-)
+
+To run the program (you need Scala installed);
+
+fsc ConnectedBlocks.scala
+scala ConnectedBlocks
