@@ -52,6 +52,7 @@ object ConnectedBlocks {
     }
 
     import scala.annotation.tailrec
+    @tailrec
     def solver(acc: List[List[(Int, Int)]],
                allTuples: List[(Int, Int)],
                currentNeighbors: List[(Int, Int)]): List[List[(Int, Int)]] = {
