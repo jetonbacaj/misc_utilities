@@ -1,0 +1,5 @@
+Given a string of three different braces; `(`, `[`, `{`, and their corresponding closing braces `)`, `]`, `}`, solve whether the braces are "balanced".
+
+For example, the string "{[()]}" is balanced, so this ought to yield a "YES" from the solver.  The string "{[[}]}" will yield a "NO".
+
+See the `main` function how to pass the input.
