@@ -64,8 +64,8 @@ public class PhoneBookProgram {
         Assert.checkNonNull(phoneBookEntryWriter, "the phonebook entry writer is null!");
 
         phoneBookEntryWriter.write(String.format("Matches for: %s", lastName));
-        if (phoneBookEntriesMap.containsKey(lastName)) {
-            final PhoneBookEntries phoneBookEntries = phoneBookEntriesMap.get(lastName);
+        if (phoneBookEntriesMap.containsKey(lastName.toLowerCase())) {
+            final PhoneBookEntries phoneBookEntries = phoneBookEntriesMap.get(lastName.toLowerCase());
             int resultCounter = 1;
             for (PhoneBookEntry phoneBookEntry : phoneBookEntries.getPhoneBookEntries()) {
                 phoneBookEntryWriter.write(String.format("Result %d: %s", resultCounter, phoneBookEntry.toString()));

@@ -35,12 +35,14 @@ public class PhoneBookDirectoryReader {
                 final PhoneBookEntry phoneBookEntry = PhoneBookParser.parseLine(line);
 
                 if (phoneBookEntry != null) {
-                    if (phoneBookEntriesMap.containsKey(phoneBookEntry.getLastName())) {
-                        phoneBookEntriesMap.get(phoneBookEntry.getLastName()).addPhoneBookEntry(phoneBookEntry);
+                    final String lowerCaseLastName = phoneBookEntry.getLastName().toLowerCase();
+
+                    if (phoneBookEntriesMap.containsKey(lowerCaseLastName)) {
+                        phoneBookEntriesMap.get(lowerCaseLastName).addPhoneBookEntry(phoneBookEntry);
                     } else {
                         final PhoneBookEntries phoneBookEntries = new PhoneBookEntries();
                         phoneBookEntries.addPhoneBookEntry(phoneBookEntry);
-                        phoneBookEntriesMap.put(phoneBookEntry.getLastName(), phoneBookEntries);
+                        phoneBookEntriesMap.put(lowerCaseLastName, phoneBookEntries);
                     }
                 }
             }

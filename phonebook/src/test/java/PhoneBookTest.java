@@ -96,6 +96,32 @@ class PhoneBookTest {
     }
 
     @Test
+    @DisplayName("Run against the supplied input")
+    void testWithSuppliedInputCaseInsensitive() throws IOException {
+        final URL phoneBookUrl = Thread.currentThread().getContextClassLoader().getResource("phonebook.csv");
+        final URL queryUrl = Thread.currentThread().getContextClassLoader().getResource("case_insensitive/insensitiveQuery.csv");
+
+        final String output = PhoneBookProgram.execute(phoneBookUrl.getFile(), queryUrl.getFile(), new PhoneBookEntryWriter());
+
+        assertNotNull(output, "Because we're passing in legit phonebook and query file, we should get back the expected output!");
+
+        // now check output against
+
+        // get expected output
+        final InputStream expectedOutput = Thread.currentThread().getContextClassLoader().getResourceAsStream("case_insensitive/expectedOutput.txt");
+        final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(expectedOutput));
+
+        final StringBuilder stringBuilder = new StringBuilder();
+
+        String str;
+        while ((str = bufferedReader.readLine()) != null) {
+            stringBuilder.append(str).append(System.lineSeparator());
+        }
+
+        assertEquals(stringBuilder.toString(), output, "The output is not matching that which is expected!");
+    }
+
+    @Test
     @DisplayName("The supplied phonebook has the same entries multiple times - the resulting phonebook should be pruned")
     void testWithMultipleIdenticalEntriesPhoneBook() throws IOException {
         final URL phoneBookUrl = Thread.currentThread().getContextClassLoader().getResource("multiple/multiple.csv");
@@ -120,4 +146,6 @@ class PhoneBookTest {
 
         assertEquals(stringBuilder.toString(), output, "The output is not matching that which is expected!");
     }
+
+
 }
